@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f052e, #31167c, #5227bd, #31167c, #0f052e);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .geometric-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      background: radial-gradient(circle at center, #1a004a, #0b0120, #000);
+    }
+
+    .shape {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.25);
+      stroke-width: 2px;
+      animation: float 12s infinite ease-in-out alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-40px) rotate(20deg); }
+      100% { transform: translateY(40px) rotate(-20deg); }
+    }
+
+    .circle1 { animation-duration: 18s; animation-delay: 0s; }
+    .circle2 { animation-duration: 20s; animation-delay: 3s; }
+    .square1 { animation-duration: 15s; animation-delay: 1s; }
+    .square2 { animation-duration: 22s; animation-delay: 4s; }
+    .triangle1 { animation-duration: 19s; animation-delay: 2s; }
+
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      z-index: 100;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+      padding: 15px 40px;  
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end; 
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding-top: 60px;
+    }
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-size: 2.50rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .download-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: #8ec9fa;
+      color: #000;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .download-btn:hover {
+      background: #fff;
+      color: #000;
+      transform: translateY(-4px);
+    }
+
+    .projects, .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .project-card:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center; 
+      flex-wrap: wrap;          
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 22px;
+      text-decoration: none;
+      transition: 0.3s;
+      backdrop-filter: blur(5px);
+    }
+
+    .social-links a:hover {
+      background: #8ec9fa;
+      color: #000;
+      transform: translateY(-5px);
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease-in-out;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .skill-card {
+      background: rgba(255,255,255,0.15);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .skill-card:hover {
+      background: rgba(255,255,255,0.35);
+      transform: translateY(-8px);
+    }
+
+    .skill-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+
+    .cert-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .cert-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="geometric-bg">
+    <svg width="100%" height="100%">
+      <!-- Lingkaran -->
+      <circle cx="10%" cy="20%" r="40" class="shape circle1"/>
+      <circle cx="80%" cy="70%" r="60" class="shape circle2"/>
+
+      <!-- Persegi -->
+      <rect x="70%" y="10%" width="80" height="80" class="shape square1"/>
+      <rect x="20%" y="60%" width="60" height="60" class="shape square2"/>
+
+      <!-- Segitiga -->
+      <polygon points="50,15 80,80 20,80" class="shape triangle1"/>
+    </svg>
+  </div>
+
+  <header>
+    <div class="logo">Portofolio Damar Adin Firdaus</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">Tentang</a>
+      <a href="#projects">Project</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <img src="image/profildam.png" alt="Profile Photo">
+    <h1>Damar Adin Firdaus</h1>
+    <p>Web Developer | Designer | Creator</p>
+    <a href="document/curiculumvitaedamar.pdf" download class="download-btn">Download CV</a>
+  </section>
+
+  <section id="about">
+    <h2>Tentang Saya</h2>
+    <p style="text-align:center;">
+Saya, Damar Adin Firdaus, adalah individu yang memiliki semangat belajar tinggi dan berkomitmen untuk terus mengembangkan kemampuan di bidang teknologi informasi serta desain grafis. Lahir di Lampung Tengah pada 9 Maret 2006, saya kini menempuh pendidikan di Politeknik Negeri Lampung setelah sebelumnya menyelesaikan studi di SMA Negeri 1 Seputih Banyak. Selama masa sekolah, saya aktif dalam berbagai organisasi, di antaranya menjadi Sekretaris Umum OSIS, Anggota Divisi IT OSIS. Pengalaman organisasi tersebut membantu saya mengasah kemampuan komunikasi, kerja sama tim, serta kedisiplinan. Dalam dunia kerja, saya pernah menjadi Kasir di Toko Fitri dan terlibat sebagai Desain Grafis Tim IT OSIS, yang memperkuat pengalaman praktis saya dalam pelayanan, ketelitian, serta kreativitas. Saya memiliki kemampuan yang baik dalam Microsoft Office (Word, Excel, PowerPoint), memahami pemrograman dasar, mampu membuat flowchart, dan mengembangkan aplikasi sederhana. Selain itu, saya terampil dalam desain grafis dasar menggunakan Canva, komunikatif, teliti, serta mampu bekerja dengan tenggat waktu. Saya juga merupakan pribadi yang adaptif dan mudah mempelajari hal baru. Dengan latar belakang keterampilan teknis, pengalaman organisasi, dan karakter kerja yang positif, saya siap berkontribusi dalam lingkungan yang profesional serta terus berkembang.
+</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+
+      <div class="skill-card">
+        <h3>Programming</h3>
+        <p>HTML, CSS, JavaScript, C++, Python (basic)</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <p>VS Code, Figma, GitHub, Flowgorithm</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Design</h3>
+        <p>UI/UX Basic, Wireframing, Color Theory</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Project Saya</h2>
+    <div class="projects">
+      <div class="project-card">Landing Page Modern</div>
+      <div class="project-card">Dashboard Analytics UI</div>
+      <div class="project-card">Personal Portfolio Web</div>
+    </div>
+  </section>
+
+  <section id="certificate">
+    <h2>Sertifikat Saya</h2>
+    <div class="cert-gallery">
+      <img src="image/sertifikat1.jpeg" alt="Sertifikat 1">
+      <img src="image/sertifikat2.jpeg" alt="Sertifikat 2">
+      <img src="image/sertifikat3.jpeg" alt="Sertifikat 3">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontak</h2>
+    <div class="social-links">
+      <a href="https://instagram.com/damaarf" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@marb0ys" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="mailto:mradinfirdaus@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/6282185828526" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/in/damar-adin-firdaus-53771836a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/FaramDox" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <script>
+  const sections = document.querySelectorAll("section");
+
+  function checkScroll() {
+    sections.forEach(sec => {
+      let rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        sec.classList.add("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  window.addEventListener("load", checkScroll);
+</script>
+
+</body>
+</html>
