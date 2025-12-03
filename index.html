@@ -264,7 +264,6 @@
       font-size: 1rem;
     }
 
-    /* Popup background */
     .popup {
       position: fixed;
       top: 0;
@@ -281,13 +280,11 @@
       z-index: 999;
     }
 
-    /* Tampilkan popup */
     .popup.active {
       visibility: visible;
       opacity: 1;
     }
 
-    /* Gambar popup */
     .popup img {
       width: 80%;
       max-width: 600px;
@@ -422,12 +419,11 @@
   window.addEventListener("load", checkScroll);
 </script>
   <script>
-// Ambil semua gambar sertifikat
+
 const certImages = document.querySelectorAll(".cert-gallery img");
 const popup = document.getElementById("imgPopup");
 const popupImg = document.getElementById("popupImg");
 
-// Jika gambar diklik → tampilkan popup
 certImages.forEach(img => {
   img.addEventListener("click", () => {
     popupImg.src = img.src;
@@ -435,11 +431,11 @@ certImages.forEach(img => {
   });
 });
 
-// Jika background popup diklik → tutup
 popup.addEventListener("click", () => {
   popup.classList.remove("active");
 });
+    
 </script>
-
 </body>
 </html>
+
