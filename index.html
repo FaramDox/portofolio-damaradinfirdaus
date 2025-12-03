@@ -92,13 +92,14 @@
 
     .hero {
       display: flex;
+      padding-top: 60px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       text-align: center;
-      padding-top: 60px;
     }
+
     .hero img {
       width: 180px;
       height: 180px;
@@ -108,7 +109,16 @@
       margin-bottom: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-    .hero h1 {
+
+    .hero img {
+      width: 45vw;
+      max-width: 180px;
+      min-width: 120px;
+      height: auto;
+    }
+
+
+    .hero h1 {  
       font-size: 2.50rem;
       margin-bottom: 10px;
     }
@@ -254,6 +264,37 @@
       font-size: 1rem;
     }
 
+    /* Popup background */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    /* Tampilkan popup */
+    .popup.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Gambar popup */
+    .popup img {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
     .cert-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -296,23 +337,23 @@
   </header>
 
   <section id="home" class="hero">
-    <img src="profildam.png" alt="Profile Photo">
+    <img src="image/profildam.png" alt="Profile Photo">
     <h1>Damar Adin Firdaus</h1>
     <p>Web Developer | Designer | Creator</p>
-    <a href="curiculumvitaedamar.pdf" download class="download-btn">Download CV</a>
+    <a href="document/curiculumvitaedamar.pdf" download class="download-btn">Download CV</a>
   </section>
 
   <section id="about">
     <h2>Tentang Saya</h2>
     <p style="text-align:center;">
-Saya Damar Adin Firdaus, adalah individu yang memiliki semangat belajar tinggi dan berkomitmen untuk terus mengembangkan kemampuan di bidang teknologi informasi serta desain grafis. Lahir di Lampung Tengah pada 9 Maret 2006, saya kini menempuh pendidikan di Politeknik Negeri Lampung setelah sebelumnya menyelesaikan studi di SMA Negeri 1 Seputih Banyak. Selama masa sekolah, saya aktif dalam berbagai organisasi, di antaranya menjadi Sekretaris Umum OSIS, Anggota Divisi IT OSIS. Pengalaman organisasi tersebut membantu saya mengasah kemampuan komunikasi, kerja sama tim, serta kedisiplinan. Dalam dunia kerja, saya pernah menjadi Kasir di Toko Fitri dan terlibat sebagai Desain Grafis Tim IT OSIS, yang memperkuat pengalaman praktis saya dalam pelayanan, ketelitian, serta kreativitas. Saya memiliki kemampuan yang baik dalam Microsoft Office (Word, Excel, PowerPoint), memahami pemrograman dasar, mampu membuat flowchart, dan mengembangkan aplikasi sederhana. Selain itu, saya terampil dalam desain grafis dasar menggunakan Canva, komunikatif, teliti, serta mampu bekerja dengan tenggat waktu. Saya juga merupakan pribadi yang adaptif dan mudah mempelajari hal baru. Dengan latar belakang keterampilan teknis, pengalaman organisasi, dan karakter kerja yang positif, saya siap berkontribusi dalam lingkungan yang profesional serta terus berkembang.
-</p>
+    Saya Damar Adin Firdaus, adalah seseorang yang selalu bersemangat untuk belajar dan mengembangkan diri, terutama dalam bidang teknologi informasi dan desain grafis. Saya lahir di Lampung Tengah pada 9 Maret 2006. Saat ini, saya menempuh pendidikan di Politeknik Negeri Lampung setelah menyelesaikan sekolah menengah di SMA Negeri 1 Seputih Banyak. Selama masa sekolah, saya cukup aktif dalam organisasi. Saya pernah dipercaya sebagai Sekretaris Umum OSIS dan juga menjadi Anggota Divisi IT OSIS. Pengalaman tersebut banyak membantu saya dalam meningkatkan kemampuan komunikasi, kerja sama tim, serta kedisiplinan.
+    Selain itu, saya juga pernah bekerja sebagai kasir di Toko Fitri dan terlibat sebagai desainer grafis pada Tim IT OSIS, yang memberikan saya pengalaman praktis dalam hal pelayanan, ketelitian, dan kreativitas. Dalam hal keterampilan, saya menguasai Microsoft Office seperti Word, Excel, dan PowerPoint. Saya juga memahami dasar-dasar pemrograman, mampu membuat flowchart, serta bisa mengembangkan aplikasi sederhana. Di bidang desain, saya terbiasa menggunakan Canva untuk membuat desain grafis dasar. Saya adalah pribadi yang komunikatif, teliti, mampu bekerja dengan tenggat waktu, serta cepat beradaptasi dengan hal-hal baru. Dengan pengalaman dan kemampuan yang saya miliki, saya bertekad untuk terus berkembang serta siap memberikan kontribusi terbaik dalam lingkungan yang profesional.
+    </p>
   </section>
 
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-container">
-
       <div class="skill-card">
         <h3>Programming</h3>
         <p>HTML, CSS, JavaScript, C++, Python (basic)</p>
@@ -341,12 +382,15 @@ Saya Damar Adin Firdaus, adalah individu yang memiliki semangat belajar tinggi d
   </section>
 
   <section id="certificate">
+    <div class="popup" id="imgPopup">
+    <img id="popupImg" src="">
+  </div>
     <h2>Sertifikat Saya</h2>
     <div class="cert-gallery">
-      <img src="sertifikat1.jpeg" alt="Sertifikat 1">
-      <img src="sertifikat2.jpeg" alt="Sertifikat 2">
-      <img src="sertifikat3.jpeg" alt="Sertifikat 3">
-      <img src="sertifikat4.jpeg" alt="Sertifikat 4">
+      <img src="image/sertifikat1.jpeg" alt="Sertifikat 1">
+      <img src="image/sertifikat2.jpeg" alt="Sertifikat 2">
+      <img src="image/sertifikat3.jpeg" alt="Sertifikat 3">
+      <img src="image/sertifikat4.jpeg" alt="Sertifikat 4">
     </div>
   </section>
 
@@ -377,10 +421,25 @@ Saya Damar Adin Firdaus, adalah individu yang memiliki semangat belajar tinggi d
   window.addEventListener("scroll", checkScroll);
   window.addEventListener("load", checkScroll);
 </script>
+  <script>
+// Ambil semua gambar sertifikat
+const certImages = document.querySelectorAll(".cert-gallery img");
+const popup = document.getElementById("imgPopup");
+const popupImg = document.getElementById("popupImg");
+
+// Jika gambar diklik → tampilkan popup
+certImages.forEach(img => {
+  img.addEventListener("click", () => {
+    popupImg.src = img.src;
+    popup.classList.add("active");
+  });
+});
+
+// Jika background popup diklik → tutup
+popup.addEventListener("click", () => {
+  popup.classList.remove("active");
+});
+</script>
 
 </body>
 </html>
-
-
-
-
